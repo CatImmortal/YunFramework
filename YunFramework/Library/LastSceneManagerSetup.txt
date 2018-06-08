@@ -1,0 +1,4 @@
+sceneSetups:
+- path: Assets/YunFramework/Test/AB/Scenes/Test.unity
+  isLoaded: 1
+  isActive: 1

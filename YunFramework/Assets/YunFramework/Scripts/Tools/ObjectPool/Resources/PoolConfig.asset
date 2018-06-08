@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 28d37d1ab06aa1c49b98ca049262ccdd, type: 3}
+  m_Name: PoolConfig
+  m_EditorClassIdentifier: 
+  _poolList:
+  - _name: Cube
+    _prefab: {fileID: 1008563871041344, guid: 9e5b06da53ef39043ac60ecc16a9f64e, type: 2}
+    _maxCount: 5
+    _unspawnTime: 0

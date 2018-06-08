@@ -1,0 +1,7 @@
+ManifestFileVersion: 0
+CRC: 4032473166
+AssetBundleManifest:
+  AssetBundleInfos:
+    Info_0:
+      Name: scene1/prefab.unity3d
+      Dependencies: {}
