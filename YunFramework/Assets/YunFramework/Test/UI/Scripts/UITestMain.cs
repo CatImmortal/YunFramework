@@ -9,7 +9,7 @@ public class UITestMain : ScriptBase{
     protected override void Start()
     {
 
-        UIManager.Instance.ConfiManager = new JsonConfiger("UITestJson");
+        UIManager.Instance.ConfiManager = new JsonConfiger("UITestJson",ResourceLoader.Instance);
         UIManager.Instance.Loader = ResourceLoader.Instance;
     }
 

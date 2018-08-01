@@ -10,7 +10,7 @@ namespace YunFramework.DataNode
     public class DataNode
     {
 
-        public static readonly DataNode[] s_EmptyArray = new DataNode[] { };
+        public static DataNode[] s_emptyArray = new DataNode[] { };
 
         /// <summary>
         /// 结点名称
@@ -24,14 +24,14 @@ namespace YunFramework.DataNode
         {
             get
             {
-                return Parent == null ? Name : string.Format("{0}{1}{2}", Parent.FullName, DataNodeCtrl.s_PathSplit[0], Name);
+                return Parent == null ? Name : string.Format("{0}{1}{2}", Parent.FullName, DataNodeCtrler.s_pathSplit[0], Name);
             }
         }
 
         /// <summary>
         /// 结点数据
         /// </summary>
-        private object m_Data;
+        private object _data;
        
 
         /// <summary>
@@ -42,7 +42,7 @@ namespace YunFramework.DataNode
         /// <summary>
         /// 子结点
         /// </summary>
-        private List<DataNode> m_Childs;
+        private List<DataNode> _childs;
 
         /// <summary>
         /// 子结点数量
@@ -51,7 +51,7 @@ namespace YunFramework.DataNode
         {
             get
             {
-                return m_Childs != null ? m_Childs.Count : 0;
+                return _childs != null ? _childs.Count : 0;
             }
         }
 
@@ -63,15 +63,15 @@ namespace YunFramework.DataNode
             }
 
             Name = name;
-            m_Data = null;
+            _data = null;
             Parent = parent;
-            m_Childs = null;
+            _childs = null;
         }
 
         /// <summary>
         /// 检测数据结点名称是否合法。
         /// </summary>
-        /// <param name="name">要检测的数据节点名称。</param>
+        /// <param name="name">要检测的数据结点名称。</param>
         /// <returns>是否是合法的数据结点名称。</returns>
         private static bool IsValidName(string name)
         {
@@ -80,7 +80,7 @@ namespace YunFramework.DataNode
                 return false;
             }
 
-            foreach (string pathSplit in DataNodeCtrl.s_PathSplit)
+            foreach (string pathSplit in DataNodeCtrler.s_pathSplit)
             {
                 if (name.Contains(pathSplit))
                 {
@@ -97,7 +97,7 @@ namespace YunFramework.DataNode
         /// </summary>
         public T GetData<T>()
         {
-            return (T)m_Data;
+            return (T)_data;
         }
 
         /// <summary>
@@ -105,7 +105,7 @@ namespace YunFramework.DataNode
         /// </summary>
         public void SetData(object data)
         {
-            m_Data = data;
+            _data = data;
         }
         #endregion
 
@@ -119,7 +119,7 @@ namespace YunFramework.DataNode
         /// <returns>指定索引的子数据结点，如果索引越界，则返回空。</returns>
         public DataNode GetChild(int index)
         {
-            return index >= ChildCount ? null : m_Childs[index];
+            return index >= ChildCount ? null : _childs[index];
         }
 
         /// <summary>
@@ -135,12 +135,12 @@ namespace YunFramework.DataNode
                 return null;
             }
 
-            if (m_Childs == null)
+            if (_childs == null)
             {
                 return null;
             }
 
-            foreach (DataNode child in m_Childs)
+            foreach (DataNode child in _childs)
             {
                 if (child.Name == name)
                 {
@@ -166,12 +166,12 @@ namespace YunFramework.DataNode
 
             node = new DataNode(name, this);
 
-            if (m_Childs == null)
+            if (_childs == null)
             {
-                m_Childs = new List<DataNode>();
+                _childs = new List<DataNode>();
             }
 
-            m_Childs.Add(node);
+            _childs.Add(node);
 
             return node;
         }
@@ -191,7 +191,7 @@ namespace YunFramework.DataNode
             }
 
             node.Clear();
-            m_Childs.Remove(node);
+            _childs.Remove(node);
         }
 
         /// <summary>
@@ -207,7 +207,7 @@ namespace YunFramework.DataNode
             }
 
             node.Clear();
-            m_Childs.Remove(node);
+            _childs.Remove(node);
         }
 
         /// <summary>
@@ -215,15 +215,15 @@ namespace YunFramework.DataNode
         /// </summary>
         public void Clear()
         {
-            m_Data = null;
-            if (m_Childs != null)
+            _data = null;
+            if (_childs != null)
             {
-                foreach (DataNode child in m_Childs)
+                foreach (DataNode child in _childs)
                 {
                     child.Clear();
                 }
 
-                m_Childs.Clear();
+                _childs.Clear();
             }
         }
 

@@ -20,7 +20,7 @@ namespace YunFramework.UI
         private bool isHideOther = false;
 
         /// <summary>
-        /// UI根节点
+        /// UI根结点
         /// </summary>
         private Transform canvas;
 

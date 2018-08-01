@@ -2,18 +2,20 @@
 using System.Collections.Generic;
 using UnityEngine;
 using YunFramework.Config;
+using YunFramework.Load;
 public class ConfigTestMain : ScriptBase {
 
     protected override void Start()
     {
-        JsonConfiger jsonConfig = new JsonConfiger("JsonConfigTest");
-        foreach (KeyValuePair<string,string> kv in jsonConfig.ConfigDict)
+        JsonConfiger jsonConfiger = new JsonConfiger("JsonConfigTest",ResourceLoader.Instance);
+        foreach (KeyValuePair<string,string> kv in jsonConfiger.ConfigDict)
         {
             Debug.Log(kv.Key + "-" + kv.Value);
         }
 
-        XmlConfiger xmlConfig = new XmlConfiger("file://" + Application.dataPath + "/YunFramework/Test/Config/Resources/XmlConfigTest.xml", "XmlConfigInfo");
-        foreach (KeyValuePair<string, string> kv in xmlConfig.ConfigDict)
+        
+        XmlConfiger xmlConfiger = new XmlConfiger("XmlConfigTest", "XmlConfigInfo", ResourceLoader.Instance);
+        foreach (KeyValuePair<string, string> kv in xmlConfiger.ConfigDict)
         {
             Debug.Log(kv.Key + "-" + kv.Value);
         }

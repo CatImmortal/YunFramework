@@ -18,7 +18,7 @@ namespace YunFramework.Load
         /// <summary>
         /// 清单文件类
         /// </summary>
-        private AssetBundleManifest _manifest = null;
+        //private AssetBundleManifest _manifest = null;
 
         protected override void Awake()
         {
@@ -47,7 +47,7 @@ namespace YunFramework.Load
             }
 
             //获取清单文件
-            _manifest = ABManifestLoader.Instance.Manifest;
+            //_manifest = ABManifestLoader.Instance.Manifest;
 
             //字典里是否已有对应的多包加载器
             if (!_allFirstDirDict.ContainsKey(firstDirName))
@@ -83,6 +83,7 @@ namespace YunFramework.Load
             }
             else
             {
+                StartCoroutine(LoadAssetBundle(firstDirName, abName, (_abName) => { })); 
                 Debug.LogError("要加载的资源：" + assetName + "不在指定包：" + abName);
                 return null;
             }

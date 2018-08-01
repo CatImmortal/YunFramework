@@ -15,6 +15,7 @@ public class ABTestMain : ScriptBase
 
     private void LoadAllABComplete(string abName)
     {
+        //AB包加载器需要的path参数为一级目录,一级目录+二级目录,资源名
         AssetBundleLoader_4.Instance.LoadGameObject("scene1,"+abName+",Cube.prefab", false);
     }
 }

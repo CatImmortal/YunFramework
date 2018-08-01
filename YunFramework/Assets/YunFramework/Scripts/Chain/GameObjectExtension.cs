@@ -1,12 +1,12 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
+using YunFramework.ActionNode;
 
 namespace YunFramework.Chain
 {
-    /// <summary>
-    /// 对GameObject的链式编程扩展
-    /// </summary>
+
     public static class GameObjectExtension
     {
         public static GameObject Chain_Show(this GameObject self)
@@ -37,6 +37,8 @@ namespace YunFramework.Chain
         {
             Object.Destroy(self);
         }
+
+        
 
     }
 }

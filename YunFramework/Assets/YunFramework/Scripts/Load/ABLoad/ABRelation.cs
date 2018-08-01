@@ -9,11 +9,7 @@ namespace YunFramework.Load
     /// </summary>
     public class ABRelation
     {
-        /// <summary>
-        /// 当前AB包的名称
-        /// </summary>
-        private string _abName;
-
+        public string AbName { get; private set; }
         /// <summary>
         /// 当前包依赖的包（依赖项）
         /// </summary>
@@ -26,7 +22,7 @@ namespace YunFramework.Load
 
         public ABRelation(string abName)
         {
-            _abName = abName;
+            AbName = abName;
         }
 
         #region 依赖关系操作

@@ -31,7 +31,7 @@ public class ConstsDefine {
     public const string UI_CANVAS_PATH = "Canvas";
     #endregion
 
-    #region AB相关常量
+    #region AB包相关常量
     /// <summary>
     /// 需要打成AB包的资源的根目录
     /// </summary>
@@ -41,5 +41,12 @@ public class ConstsDefine {
     /// AB清单文件名字
     /// </summary>
     public const string AB_MANIFEST = "AssetBundleManifest";
+    #endregion
+
+    #region 数据结点相关常量
+    /// <summary>
+    /// 根结点名称
+    /// </summary>
+    public const string ROOT_NAME = "<Root>";
     #endregion
 }

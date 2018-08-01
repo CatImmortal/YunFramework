@@ -16,9 +16,15 @@ namespace YunFramework.Config
         /// </summary>
         public Dictionary<string, string> ConfigDict { get; private set; }
 
-        public JsonConfiger(string jsonPath)
+        /// <summary>
+        /// 资源加载器
+        /// </summary>
+        public ILoader Loader { get; private set; }
+
+        public JsonConfiger(string jsonPath,ILoader loader)
         {
             ConfigDict = new Dictionary<string, string>();
+            Loader = loader;
             AnalysisJson(jsonPath);
         }
 
@@ -55,7 +61,7 @@ namespace YunFramework.Config
             //开始解析Json
             try
             {
-                configText = ResourceLoader.Instance.LoadAsset<TextAsset>(jsonPath);
+                configText = Loader.LoadAsset<TextAsset>(jsonPath);
                 configInfo = JsonUtility.FromJson<KeyValuesInfo>(configText.text);
             }
             catch (Exception e)

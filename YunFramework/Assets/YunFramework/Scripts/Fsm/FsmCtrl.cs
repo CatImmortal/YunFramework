@@ -12,13 +12,13 @@ namespace YunFramework.Fsm
         /// <summary>
         /// 所有状态机的字典
         /// </summary>
-        private Dictionary<string, IFsm> fsms;
-        private List<IFsm> tempFsms;
+        private Dictionary<string, IFsm> _fsms;
+        private List<IFsm> _tempFsms;
 
         public FsmCtrl()
         {
-            fsms = new Dictionary<string, IFsm>();
-            tempFsms = new List<IFsm>();
+            _fsms = new Dictionary<string, IFsm>();
+            _tempFsms = new List<IFsm>();
         }
 
         #region 生命周期
@@ -27,18 +27,18 @@ namespace YunFramework.Fsm
 
         protected override void Update()
         {
-            tempFsms.Clear();
-            if (fsms.Count <= 0)
+            _tempFsms.Clear();
+            if (_fsms.Count <= 0)
             {
                 return;
             }
 
-            foreach (KeyValuePair<string, IFsm> fsm in fsms)
+            foreach (KeyValuePair<string, IFsm> fsm in _fsms)
             {
-                tempFsms.Add(fsm.Value);
+                _tempFsms.Add(fsm.Value);
             }
 
-            foreach (IFsm fsm in tempFsms)
+            foreach (IFsm fsm in _tempFsms)
             {
                 if (fsm.IsDestroyed)
                 {
@@ -51,13 +51,13 @@ namespace YunFramework.Fsm
 
         protected override void OnDestroy()
         {
-            foreach (KeyValuePair<string, IFsm> fsm in fsms)
+            foreach (KeyValuePair<string, IFsm> fsm in _fsms)
             {
                 fsm.Value.Shutdown();
             }
 
-            fsms.Clear();
-            tempFsms.Clear();
+            _fsms.Clear();
+            _tempFsms.Clear();
         }
         #endregion
 
@@ -68,7 +68,7 @@ namespace YunFramework.Fsm
         /// </summary>
         public bool HasFsm<T>()
         {
-            return fsms.ContainsKey(typeof(T).FullName);
+            return _fsms.ContainsKey(typeof(T).FullName);
         }
 
         /// <summary>
@@ -90,7 +90,7 @@ namespace YunFramework.Fsm
                 name = typeof(T).FullName;
             }
             Fsm<T> fsm = new Fsm<T>(name, owner, states);
-            fsms.Add(name, fsm);
+            _fsms.Add(name, fsm);
             return fsm;
         }
 
@@ -100,10 +100,10 @@ namespace YunFramework.Fsm
         public bool DestroyFsm(string name)
         {
             IFsm fsm = null;
-            if (fsms.TryGetValue(name, out fsm))
+            if (_fsms.TryGetValue(name, out fsm))
             {
                 fsm.Shutdown();
-                return fsms.Remove(name);
+                return _fsms.Remove(name);
             }
 
             return false;

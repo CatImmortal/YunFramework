@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using YunFramework.Load;
 
 namespace YunFramework.Config
 {
@@ -13,6 +14,11 @@ namespace YunFramework.Config
         /// 配置信息字典
         /// </summary>
         Dictionary<string,string> ConfigDict { get; }
+
+        /// <summary>
+        /// 资源加载器
+        /// </summary>
+        ILoader Loader { get; }
 
         /// <summary>
         /// 配置信息数量

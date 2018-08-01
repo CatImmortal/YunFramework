@@ -80,11 +80,12 @@ namespace YunFramework.Tools
             //自动回收设置
             if (unspawnTime != 0)
             {
-                DelayTaskCtrl.Instance.AddDelayTask(unspawnTime, () => Unspawn(ro));
+                //TODO
+                //DelayTaskCtrl.Instance.AddDelayTask(unspawnTime, () => Unspawn(ro));
             }
             else if (_unspawnTime != 0)
             {
-                DelayTaskCtrl.Instance.AddDelayTask(_unspawnTime, () => Unspawn(ro));
+                //DelayTaskCtrl.Instance.AddDelayTask(_unspawnTime, () => Unspawn(ro));
             }
 
             return ro;

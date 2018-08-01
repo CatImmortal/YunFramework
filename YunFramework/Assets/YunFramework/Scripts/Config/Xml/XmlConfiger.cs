@@ -5,6 +5,7 @@ using System.IO;
 using System.Xml;
 using System.Xml.Linq;
 using UnityEngine;
+using YunFramework.Load;
 
 namespace YunFramework.Config
 {
@@ -18,9 +19,16 @@ namespace YunFramework.Config
         /// </summary>
         public Dictionary<string, string> ConfigDict { get; private set; }
 
-        public XmlConfiger(string xmlPath, string xmlRootNodeName)
+        /// <summary>
+        /// 资源加载器
+        /// </summary>
+        public ILoader Loader { get; private set; }
+
+
+        public XmlConfiger(string xmlPath, string xmlRootNodeName,ILoader loader)
         {
             ConfigDict = new Dictionary<string, string>();
+            Loader = loader;
             AnalysisXml(xmlPath, xmlRootNodeName);
         }
 
@@ -49,17 +57,16 @@ namespace YunFramework.Config
                 return;
             }
 
-            XDocument xmlDoc;  //文档
             XmlReader xmlReader;  //读写器
 
             //开始读取Xml
             try
             {
                 //加载xml配置文件
-                xmlDoc = XDocument.Load(xmlPath);
+                TextAsset xmlText = Loader.LoadAsset<TextAsset>(xmlPath);
 
                 //创建xml读取器
-                xmlReader = XmlReader.Create(new StringReader(xmlDoc.ToString())); 
+                xmlReader = XmlReader.Create(new StringReader(xmlText.text)); 
             }
             catch (Exception e)
             {
@@ -69,22 +76,22 @@ namespace YunFramework.Config
             //循环解析XML
             while (xmlReader.Read())
             {
-                //XML读取器从指定的根节点开始读取
+                //XML读取器从指定的根结点开始读取
                 if (xmlReader.IsStartElement() && xmlReader.LocalName == xmlRootNodeName)
                 {
-                    //读取根节点下的所有子节点
+                    //读取根结点下的所有子结点
                     using (XmlReader xmlReaderItem = xmlReader.ReadSubtree())
                     {
-                        //循环的方式读取所有子节点
+                        //循环的方式读取所有子结点
                         while (xmlReaderItem.Read())
                         {
-                            //如果读到节点元素
+                            //如果读到结点元素
                             if (xmlReaderItem.NodeType == XmlNodeType.Element)
                             {
                                 string strNode = xmlReaderItem.Name;
                                 //读当前行的下一个内容
                                 xmlReaderItem.Read();
-                                //如果读到节点内容
+                                //如果读到结点内容
                                 if (xmlReaderItem.NodeType == XmlNodeType.Text)
                                 {
                                     //放入字典
