@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System;
-using YunFramework.Base;
+
 namespace YunFramework.DataNode
 {
     /// <summary>

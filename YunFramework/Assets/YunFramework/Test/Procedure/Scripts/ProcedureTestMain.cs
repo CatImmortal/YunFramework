@@ -1,11 +1,10 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using YunFramework.Base;
 using YunFramework.Procedure;
-public class ProcedureTestMain : ScriptBase {
+public class ProcedureTestMain : MonoBehaviour {
 
-    protected override void Awake()
+    void Awake()
     {
         //添加入口流程
         ProcedureStart start = new ProcedureStart();

@@ -1,7 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using YunFramework.Base;
 using YunFramework.Fsm;
 namespace YunFramework.Procedure
 {
@@ -78,7 +77,7 @@ namespace YunFramework.Procedure
         /// </summary>
         public void CreateProceduresFsm()
         {
-            _procedureFsm = FsmCtrl.Instance.CreateFsm(this,"", _procedures.ToArray());
+            _procedureFsm = FsmCtrler.Instance.CreateFsm(this,"", _procedures.ToArray());
 
             if (_entranceProcedure == null)
             {

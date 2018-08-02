@@ -1,7 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using YunFramework.Base;
 namespace YunFramework.Load
 {
     /// <summary>

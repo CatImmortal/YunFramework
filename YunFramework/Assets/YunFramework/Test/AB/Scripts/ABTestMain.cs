@@ -4,11 +4,11 @@ using UnityEngine;
 using YunFramework.UI;
 using YunFramework.Load;
 using YunFramework.Config;
-public class ABTestMain : ScriptBase
+public class ABTestMain : MonoBehaviour
 {
    
 
-    protected override void Start()
+    void Start()
     {
         StartCoroutine(AssetBundleLoader_4.Instance.LoadAssetBundle("scene1", "scene1/prefab.unity3d", LoadAllABComplete));
     }

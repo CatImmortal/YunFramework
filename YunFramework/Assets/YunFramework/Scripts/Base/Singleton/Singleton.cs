@@ -2,8 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Reflection;
-namespace YunFramework.Base
-{
+
     /// <summary>
     /// 普通C#类的单例模板基类，继承该类需要提供一个私有的构造方法
     /// </summary>
@@ -39,5 +38,5 @@ namespace YunFramework.Base
 
         }
     }
-}
+
 

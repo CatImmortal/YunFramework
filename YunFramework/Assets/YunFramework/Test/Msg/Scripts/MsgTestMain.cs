@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 using YunFramework.Msg;
-public class MsgTestMain : ScriptBase {
+public class MsgTestMain : MonoBehaviour {
 
-    protected override void Start()
+    void Start()
     {
         GameObject go = GameObject.Find("Button");
         EventTriggerListener listener = EventTriggerListener.GetListener(go);
@@ -16,7 +16,7 @@ public class MsgTestMain : ScriptBase {
         //        .ChainSetLocalScale(Vector3.one * 2);
     }
 
-    protected override void Update()
+    void Update()
     {
         if (Input.GetMouseButtonDown(1))
         {

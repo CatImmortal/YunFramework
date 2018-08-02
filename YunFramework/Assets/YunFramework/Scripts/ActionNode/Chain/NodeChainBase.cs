@@ -20,7 +20,7 @@ namespace YunFramework.ActionNode
         /// <summary>
         /// 结点链执行者
         /// </summary>
-        public MonoBehaviour Executer { get; set; }
+        public IUpdater Executer { get; set; }
 
         /// <summary>
         /// 追加结点到结点链中

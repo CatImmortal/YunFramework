@@ -1,12 +1,11 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-namespace YunFramework.Base
-{
+
     /// <summary>
     /// 脚本的单例模板基类
     /// </summary>
-    public abstract class ScriptSingleton<T>  : ScriptBase where T : ScriptSingleton<T>
+    public abstract class ScriptSingleton<T>: MonoBehaviour where T : ScriptSingleton<T>
     {
         
         protected static T _instance;
@@ -49,11 +48,11 @@ namespace YunFramework.Base
             }
         }
 
-        protected override void OnDestroy()
+        protected virtual void OnDestroy()
         {
             _instance = null;
         }
 
     }
-}
+
 

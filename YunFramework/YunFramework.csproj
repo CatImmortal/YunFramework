@@ -242,12 +242,14 @@
     <Compile Include="Assets\YunFramework\Scripts\ActionNode\Node\SequenceNode.cs" />
     <Compile Include="Assets\YunFramework\Scripts\ActionNode\Node\SpawnNode.cs" />
     <Compile Include="Assets\YunFramework\Scripts\ActionNode\Node\UntilNode.cs" />
-    <Compile Include="Assets\YunFramework\Scripts\Base\Script\ScriptBase.cs" />
+    <Compile Include="Assets\YunFramework\Scripts\Base\Script\FrameworkEntry.cs" />
+    <Compile Include="Assets\YunFramework\Scripts\Base\Script\IUpdater.cs" />
+    <Compile Include="Assets\YunFramework\Scripts\Base\Script\UpdateDriver.cs" />
     <Compile Include="Assets\YunFramework\Scripts\Base\Singleton\ScriptSingleton.cs" />
     <Compile Include="Assets\YunFramework\Scripts\Base\Singleton\Singleton.cs" />
     <Compile Include="Assets\YunFramework\Scripts\Base\Singleton\SingletonComponent.cs" />
     <Compile Include="Assets\YunFramework\Scripts\Chain\GameObjectExtension.cs" />
-    <Compile Include="Assets\YunFramework\Scripts\Chain\MonoBehaviourExtension.cs" />
+    <Compile Include="Assets\YunFramework\Scripts\Chain\IUpdaterExtension.cs" />
     <Compile Include="Assets\YunFramework\Scripts\Chain\TransformExtension.cs" />
     <Compile Include="Assets\YunFramework\Scripts\Config\IConfiger.cs" />
     <Compile Include="Assets\YunFramework\Scripts\Config\Json\JsonConfiger.cs" />
@@ -258,7 +260,7 @@
     <Compile Include="Assets\YunFramework\Scripts\DataNode\DataNodeCtrler.cs" />
     <Compile Include="Assets\YunFramework\Scripts\Define\ConstsDefine.cs" />
     <Compile Include="Assets\YunFramework\Scripts\Fsm\Fsm.cs" />
-    <Compile Include="Assets\YunFramework\Scripts\Fsm\FsmCtrl.cs" />
+    <Compile Include="Assets\YunFramework\Scripts\Fsm\FsmCtrler.cs" />
     <Compile Include="Assets\YunFramework\Scripts\Fsm\FsmState.cs" />
     <Compile Include="Assets\YunFramework\Scripts\Fsm\IFsm.cs" />
     <Compile Include="Assets\YunFramework\Scripts\Load\ABLoad\ABManifestLoader.cs" />
@@ -269,17 +271,13 @@
     <Compile Include="Assets\YunFramework\Scripts\Load\ABLoad\RuntimeABPath.cs" />
     <Compile Include="Assets\YunFramework\Scripts\Load\ABLoad\SingleABLoader_2.cs" />
     <Compile Include="Assets\YunFramework\Scripts\Load\ILoader.cs" />
-    <Compile Include="Assets\YunFramework\Scripts\Load\ResLoad\ResourceLoader.cs" />
+    <Compile Include="Assets\YunFramework\Scripts\Load\ResLoad\ResLoader.cs" />
     <Compile Include="Assets\YunFramework\Scripts\Msg\EventTriggerListener.cs" />
     <Compile Include="Assets\YunFramework\Scripts\Msg\IMsgReceiver.cs" />
     <Compile Include="Assets\YunFramework\Scripts\Msg\MsgDispatcher.cs" />
     <Compile Include="Assets\YunFramework\Scripts\Procedure\ProcedureBase.cs" />
     <Compile Include="Assets\YunFramework\Scripts\Procedure\ProcedureCtrl.cs" />
     <Compile Include="Assets\YunFramework\Scripts\Tools\Helper\UnityHelper.cs" />
-    <Compile Include="Assets\YunFramework\Scripts\Tools\ObjectPool\ObjectPool.cs" />
-    <Compile Include="Assets\YunFramework\Scripts\Tools\ObjectPool\ObjectPoolConfig.cs" />
-    <Compile Include="Assets\YunFramework\Scripts\Tools\ObjectPool\PoolCtrl.cs" />
-    <Compile Include="Assets\YunFramework\Scripts\Tools\ObjectPool\ReuseableObject.cs" />
     <Compile Include="Assets\YunFramework\Scripts\Tools\UI\ResolutionAdapter.cs" />
     <Compile Include="Assets\YunFramework\Scripts\UI\UIManager.cs" />
     <Compile Include="Assets\YunFramework\Scripts\UI\UIPanel\UIPanelBase.cs" />
@@ -290,8 +288,6 @@
     <Compile Include="Assets\YunFramework\Test\Config\Scritps\ConfigTestMain.cs" />
     <Compile Include="Assets\YunFramework\Test\Msg\Scripts\MsgReceiveCube.cs" />
     <Compile Include="Assets\YunFramework\Test\Msg\Scripts\MsgTestMain.cs" />
-    <Compile Include="Assets\YunFramework\Test\ObjectPool\Scripts\ObjectPoolTestMain.cs" />
-    <Compile Include="Assets\YunFramework\Test\ObjectPool\Scripts\ReuseableCube.cs" />
     <Compile Include="Assets\YunFramework\Test\Procedure\Scripts\ProcedureOver.cs" />
     <Compile Include="Assets\YunFramework\Test\Procedure\Scripts\ProcedurePlay.cs" />
     <Compile Include="Assets\YunFramework\Test\Procedure\Scripts\ProcedureStart.cs" />
@@ -299,8 +295,7 @@
     <Compile Include="Assets\YunFramework\Test\Singleton\Scripts\ScriptSingletonTest.cs" />
     <Compile Include="Assets\YunFramework\Test\Singleton\Scripts\SingletonCompnentTest.cs" />
     <Compile Include="Assets\YunFramework\Test\Singleton\Scripts\SingletonTestMain.cs" />
-    <Compile Include="Assets\YunFramework\Test\UI\Scripts\ButtonUI.cs" />
-    <Compile Include="Assets\YunFramework\Test\UI\Scripts\UITestMain.cs" />
+    <Compile Include="Assets\YunFramework\Test\Updater\Scripts\UpdaterTestMain.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\YunFramework\Test\Config\Resources\XmlConfigTest.xml" />

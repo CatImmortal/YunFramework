@@ -2,13 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
-using YunFramework.Base;
 using YunFramework.Msg;
 using YunFramework.Tools;
 
 namespace YunFramework.UI
 {
-    public class UIPanelBase :ScriptBase,IMsgReceiver
+    public abstract class UIPanelBase :IUpdater,IMsgReceiver
     {
         private UIType _type = new UIType();
         public UIType Type
@@ -23,7 +22,12 @@ namespace YunFramework.UI
             }
         }
 
-      
+        public GameObject GO { get; set; }
+
+
+        public abstract int Priority { get; }
+
+
 
         #region 生命周期
 
@@ -32,7 +36,7 @@ namespace YunFramework.UI
         /// </summary>
         public virtual void Display()
         {
-            gameObject.SetActive(true);
+            GO.SetActive(true);
         }
 
         /// <summary>
@@ -40,7 +44,7 @@ namespace YunFramework.UI
         /// </summary>
         public virtual void Hide()
         {
-            gameObject.SetActive(false);
+            GO.SetActive(false);
         }
 
         /// <summary>
@@ -48,7 +52,7 @@ namespace YunFramework.UI
         /// </summary>
         public virtual void Redisplay()
         {
-            gameObject.SetActive(true);
+            GO.SetActive(true);
         }
 
         /// <summary>
@@ -56,7 +60,7 @@ namespace YunFramework.UI
         /// </summary>
         public virtual void Freeze()
         {
-            gameObject.SetActive(true);
+            GO.SetActive(true);
         }
 
         #endregion
@@ -85,11 +89,21 @@ namespace YunFramework.UI
         protected void RigisteClickEvent(string childName, EventTriggerListener.VoidDelegate handler)
         {
             //找到按钮对象
-            Transform child = UnityHelper.FindTheChildNode(gameObject.transform, childName);
+            Transform child = UnityHelper.FindTheChildNode(GO.transform, childName);
 
             //注册点击事件
             EventTriggerListener.GetListener(child.gameObject)._onPointerClick += handler;
         }
+
+        public abstract void OnInit();
+
+        public abstract void OnUpdate(float deltaTime);
+
+        public abstract void OnLateUpdate(float deltaTime);
+
+        public abstract void OnFixedUpdate(float deltaTime);
+
+        public abstract void OnDestroy();
 
         #endregion
     }

@@ -291,7 +291,6 @@
   <ItemGroup>
     <Compile Include="Assets\YunFramework\Scripts\Load\ABLoad\Editor\ABEditor.cs" />
     <Compile Include="Assets\YunFramework\Scripts\Load\ABLoad\Editor\BuildABPath.cs" />
-    <Compile Include="Assets\YunFramework\Scripts\Tools\ObjectPool\Editor\PoolEditor.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\YunFramework\Test\Config\Resources\XmlConfigTest.xml" />

@@ -2,10 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-    public class SingletonTestMain : ScriptBase
+    public class SingletonTestMain : MonoBehaviour
     {
 
-        protected override void Start()
+        void Start()
         {
             ScriptSingletonTest.Instance.Test();
             SingletonCompnentTest.Instance.Test();

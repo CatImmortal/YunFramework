@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 using YunFramework.Msg;
-public class MsgReceiveCube : ScriptBase,IMsgReceiver {
+public class MsgReceiveCube : MonoBehaviour,IMsgReceiver {
 
-    protected override void Start()
+    void Start()
     {
         this.RegisteMsg("HelloWorld", (x) => { Debug.Log(x); });
     }

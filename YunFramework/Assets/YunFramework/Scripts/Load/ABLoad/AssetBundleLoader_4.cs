@@ -2,13 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
-using YunFramework.Base;
 namespace YunFramework.Load
 {
     /// <summary>
     /// AB包总加载器(根目录)
     /// </summary>
-    public class AssetBundleLoader_4 :ScriptSingleton<AssetBundleLoader_4>, ILoader
+    public class AssetBundleLoader_4 :Singleton<AssetBundleLoader_4>, ILoader
     {
         /// <summary>
         /// 所有一级目录的字典
@@ -20,12 +19,11 @@ namespace YunFramework.Load
         /// </summary>
         //private AssetBundleManifest _manifest = null;
 
-        protected override void Awake()
+        private AssetBundleLoader_4()
         {
             //加载清单文件
-            StartCoroutine(ABManifestLoader.Instance.LoadManifetFile());
+            UpdateDriver.Instance.StartCoroutine(ABManifestLoader.Instance.LoadManifetFile());
         }
-
 
 
         #region 加载包与资源的操作
@@ -83,7 +81,7 @@ namespace YunFramework.Load
             }
             else
             {
-                StartCoroutine(LoadAssetBundle(firstDirName, abName, (_abName) => { })); 
+                UpdateDriver.Instance.StartCoroutine(LoadAssetBundle(firstDirName, abName, (_abName) => { })); 
                 Debug.LogError("要加载的资源：" + assetName + "不在指定包：" + abName);
                 return null;
             }
@@ -95,7 +93,7 @@ namespace YunFramework.Load
         public GameObject LoadGameObject(string path, bool isCache = false)
         {
             GameObject go = LoadAsset<GameObject>(path, isCache);
-            GameObject goClone = Instantiate(go);
+            GameObject goClone = Object.Instantiate(go);
             if (goClone == null)
             {
                 Debug.LogError("实例化游戏物体未成功：" + path);

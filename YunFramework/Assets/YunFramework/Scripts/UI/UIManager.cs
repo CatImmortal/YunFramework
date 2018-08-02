@@ -1,7 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using YunFramework.Base;
 using YunFramework.Load;
 using YunFramework.Config;
 using YunFramework.Chain;
@@ -200,7 +199,7 @@ namespace YunFramework.UI
                 }
 
                 //栈顶的UI和要关闭的UI不同时，报错并return    
-                if (uiName != _popUI.Peek().gameObject.name)
+                if (uiName != _popUI.Peek().GO.name)
                 {
                     Debug.LogError("要关闭的可重复PopUI不在栈顶");
                     return;
@@ -264,7 +263,7 @@ namespace YunFramework.UI
                                   .Chain_SetLocalScale(Vector3.one)
                                   .Chain_SetLocalEulerAngles(Vector3.zero);
 
-                    PanelBase.gameObject.SetActive(false);
+                    PanelBase.GO.SetActive(false);
 
                     //不可重复显示的UI放入字典里
                     if (!PanelBase.Type.isRepeat)
@@ -392,7 +391,7 @@ namespace YunFramework.UI
             //可重复的UI出栈后需要销毁自身
             if (panelBase.Type.isRepeat)
             {
-                Object.DestroyImmediate(panelBase.gameObject);
+                Object.DestroyImmediate(panelBase.GO);
             }
         }
 

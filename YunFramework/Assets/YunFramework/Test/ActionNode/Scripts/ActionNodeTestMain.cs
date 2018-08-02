@@ -3,10 +3,32 @@ using System.Collections.Generic;
 using UnityEngine;
 using YunFramework.Chain;
 
-public class ActionNodeTestMain : MonoBehaviour {
+public class ActionNodeTestMain : IUpdater
+{
+    public GameObject GO { get; set; }
 
-	// Use this for initialization
-	void Start () {
+
+    public int Priority
+    {
+        get
+        {
+            return 1;
+        }
+    }
+
+    public void OnDestroy()
+    {
+        
+    }
+
+    public void OnFixedUpdate(float deltaTime)
+    {
+        
+    }
+
+    public void OnInit()
+    {
+        //请到FrameWorkEntry中解开测试代码的注释
         this.Sequence()
             .Until(() => { return Input.GetKeyDown(KeyCode.Space); })
             .Delay(2.0f)
@@ -24,9 +46,14 @@ public class ActionNodeTestMain : MonoBehaviour {
             })
             .Begin();
     }
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+
+    public void OnLateUpdate(float deltaTime)
+    {
+        
+    }
+
+    public void OnUpdate(float deltaTime)
+    {
+        
+    }
 }

@@ -4,8 +4,7 @@ using System.Collections.Generic;
 using System.Reflection;
 using UnityEngine;
 
-namespace YunFramework.Base
-{
+
     /// <summary>
     /// 普通C#类的单例组件，组合该组件需要提供一个私有的构造方法
     /// </summary>
@@ -41,6 +40,6 @@ namespace YunFramework.Base
         }
 
     }
-}
+
 
 
