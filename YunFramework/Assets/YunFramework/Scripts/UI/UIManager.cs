@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using YunFramework.Load;
 using YunFramework.Config;
-using YunFramework.Chain;
+
 
 namespace YunFramework.UI
 {

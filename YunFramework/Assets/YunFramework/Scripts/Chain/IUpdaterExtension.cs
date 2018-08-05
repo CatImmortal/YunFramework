@@ -4,8 +4,7 @@ using UnityEngine;
 using UnityEngine.Events;
 using YunFramework.ActionNode;
 
-namespace YunFramework.Chain
-{
+
     /// <summary>
     /// 对IUpdater的链式编程扩展
     /// </summary>
@@ -44,5 +43,5 @@ namespace YunFramework.Chain
             return new RepeatNodeChain(count) { Executer = self };
         }
     }
-}
+
 

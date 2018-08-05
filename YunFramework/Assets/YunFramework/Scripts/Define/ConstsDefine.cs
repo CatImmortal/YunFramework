@@ -7,23 +7,6 @@ using UnityEngine;
 /// </summary>
 public class ConstsDefine {
 
-    #region 对象池配置文件常量
-    /// <summary>
-    /// 配置文件目录路径
-    /// </summary>
-    public const string POOLCONFIG_DIRECTORY ="/YunFramework/Scripts/Tools/ObjectPool/Resources/";
-
-    /// <summary>
-    /// 配置文件的文件名
-    /// </summary>
-    public const string POOLCONFIG_NAME = "PoolConfig.asset";
-
-    /// <summary>
-    /// 用于创建配置文件的路径
-    /// </summary>
-    public const string POOLCONFIG_CREATEPATH = "Assets/YunFramework/Scripts/Tools/ObjectPool/Resources/" + POOLCONFIG_NAME;
-    #endregion
-
     #region UI相关常量
     /// <summary>
     /// Canvas预制体的加载路径

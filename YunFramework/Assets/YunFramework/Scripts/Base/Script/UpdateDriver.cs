@@ -38,6 +38,8 @@ public class UpdateDriver : ScriptSingleton<UpdateDriver> {
             current = current.Next;
         }
 
+        updater.OnInit();
+
         if (current != null)
         {
             //找到了优先级更小的元素
@@ -131,7 +133,7 @@ public class UpdateDriver : ScriptSingleton<UpdateDriver> {
 
         Debug.Log(string.Format("在游戏物体{0}上添加了轮询器{1}",name,updater.GetType().FullName));
 
-        updater.OnInit();
+       
 
         return updater as T;
     }

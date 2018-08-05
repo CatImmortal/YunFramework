@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace YunFramework.Chain {
 
     /// <summary>
     /// 对Transform的链式编程扩展
@@ -65,5 +64,5 @@ namespace YunFramework.Chain {
 
     }
 
-}
+
 

@@ -3,10 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 namespace YunFramework.Tools
 {
+    /// <summary>
+    /// Unity辅助器
+    /// </summary>
     public static class UnityHelper
     {
         /// <summary>
-        /// 递归查找子物体
+        /// 递归查找子结点
         /// </summary>
         public static Transform FindTheChildNode(Transform parent, string childName)
         {

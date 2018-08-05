@@ -4,8 +4,7 @@ using UnityEngine;
 using UnityEngine.Events;
 using YunFramework.ActionNode;
 
-namespace YunFramework.Chain
-{
+
 
     public static class GameObjectExtension
     {
@@ -41,5 +40,5 @@ namespace YunFramework.Chain
         
 
     }
-}
+
 

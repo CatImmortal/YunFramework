@@ -23,6 +23,7 @@ public class FrameworkEntry : IUpdater
     {
         //TODO:添加框架各模块的轮询器
         UpdateDriver.Instance.AddUpdater(FsmCtrler.Instance);
+        UpdateDriver.Instance.AddUpdater(ThreadCrossHelper.Instance);
 
         //TODO:添加测试代码的轮询器
         //UpdateDriver.Instance.AddUpdater<UpdaterTestMain>();
