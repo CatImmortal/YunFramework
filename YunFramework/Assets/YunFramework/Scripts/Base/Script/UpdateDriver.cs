@@ -8,6 +8,7 @@ using UnityEngine;
 /// </summary>
 public class UpdateDriver : ScriptSingleton<UpdateDriver> {
 
+
     /// <summary>
     /// 轮询器链表
     /// </summary>
@@ -38,6 +39,7 @@ public class UpdateDriver : ScriptSingleton<UpdateDriver> {
             current = current.Next;
         }
 
+        //保证Init在Update前执行
         updater.OnInit();
 
         if (current != null)
@@ -71,7 +73,7 @@ public class UpdateDriver : ScriptSingleton<UpdateDriver> {
 
         foreach (IUpdater updater in _updaters)
         {
-            if (updater.GO == go && updater.GetType() == updaterType)
+            if (updater.GameObject == go && updater.GetType() == updaterType)
             {
                 return updater as T;
             }
@@ -98,7 +100,7 @@ public class UpdateDriver : ScriptSingleton<UpdateDriver> {
 
         foreach (IUpdater updater in _updaters)
         {
-            if (updater.GO == go && updater.GetType() == updaterType)
+            if (updater.GameObject == go && updater.GetType() == updaterType)
             {
                 updaters.Add(updater as T);
             }
@@ -121,7 +123,7 @@ public class UpdateDriver : ScriptSingleton<UpdateDriver> {
     {
         IUpdater updater = new T
         {
-            GO = go
+            GameObject = go
         };
         RegistUpdateDriver(updater);
 
@@ -132,8 +134,6 @@ public class UpdateDriver : ScriptSingleton<UpdateDriver> {
         }
 
         Debug.Log(string.Format("在游戏物体{0}上添加了轮询器{1}",name,updater.GetType().FullName));
-
-       
 
         return updater as T;
     }
@@ -149,7 +149,7 @@ public class UpdateDriver : ScriptSingleton<UpdateDriver> {
             return;
         }
 
-        updater.GO = go;
+        updater.GameObject = go;
 
         RegistUpdateDriver(updater);
 
@@ -177,7 +177,7 @@ public class UpdateDriver : ScriptSingleton<UpdateDriver> {
         List<IUpdater> updaters = new List<IUpdater>();
         foreach (IUpdater updater in _updaters)
         {
-            if (updater.GO != null && updater.GO == go)
+            if (updater.GameObject != null && updater.GameObject == go)
             {
                 updaters.Add(updater);
             }
@@ -212,30 +212,44 @@ public class UpdateDriver : ScriptSingleton<UpdateDriver> {
 
     private void Start()
     {
+        Hotfixer.Instance.LoadHotfixDll();
+
         AddUpdater<FrameworkEntry>();
     }
 
     private void Update()
     {
-        foreach (IUpdater updater in _updaters)
+        LinkedListNode<IUpdater> current = _updaters.First;
+        while (current != null)
         {
-            updater.OnUpdate(Time.deltaTime);
+            LinkedListNode<IUpdater> tempNode = current;
+            current = current.Next;
+
+            tempNode.Value.OnUpdate(Time.deltaTime);
         }
     }
 
     private void LateUpdate()
     {
-        foreach (IUpdater updater in _updaters)
+        LinkedListNode<IUpdater> current = _updaters.First;
+        while (current != null)
         {
-            updater.OnLateUpdate(Time.deltaTime);
+            LinkedListNode<IUpdater> tempNode = current;
+            current = current.Next;
+
+            tempNode.Value.OnLateUpdate(Time.deltaTime);
         }
     }
 
     private void FixedUpdate()
     {
-        foreach (IUpdater updater in _updaters)
+        LinkedListNode<IUpdater> current = _updaters.First;
+        while (current != null)
         {
-            updater.OnFixedUpdate(Time.deltaTime);
+            LinkedListNode<IUpdater> tempNode = current;
+            current = current.Next;
+
+            tempNode.Value.OnFixedUpdate(Time.deltaTime);
         }
     }
 

@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
@@ -14,6 +15,7 @@ namespace YunFramework.Msg
         /// 消息与对应处理方法的字典
         /// </summary>
         private static Dictionary<string, List<UnityAction<object>>> _msgHandlerDict = new Dictionary<string, List<UnityAction<object>>>();
+
 
         #region IMsgReceiver的扩展方法
         /// <summary>

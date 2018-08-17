@@ -1,7 +1,10 @@
 ManifestFileVersion: 0
-CRC: 4032473166
+CRC: 4293271304
 AssetBundleManifest:
   AssetBundleInfos:
     Info_0:
       Name: scene1/prefab.unity3d
+      Dependencies: {}
+    Info_1:
+      Name: hotfix/dll.unity3d
       Dependencies: {}

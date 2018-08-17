@@ -5,7 +5,7 @@ using YunFramework.Fsm;
 using YunFramework.Procedure;
 public class ProcedureOver : ProcedureBase {
 
-    public override void OnUpdate(Fsm<ProcedureCtrl> fsm, float elapseSeconds, float realElapseSeconds)
+    public override void OnUpdate(Fsm<ProcedureCtrler> fsm, float elapseSeconds, float realElapseSeconds)
     {
         base.OnUpdate(fsm, elapseSeconds, realElapseSeconds);
         if (Input.GetMouseButtonDown(0))

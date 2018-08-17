@@ -14,7 +14,7 @@ namespace YunFramework.Fsm
         private Dictionary<string, IFsm> _fsms;
         private List<IFsm> _tempFsms;
 
-        public GameObject GO { get; set; }
+        public GameObject GameObject { get; set; }
 
 
         public int Priority

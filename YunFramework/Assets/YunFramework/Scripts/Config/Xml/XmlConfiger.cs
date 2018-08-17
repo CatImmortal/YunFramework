@@ -57,7 +57,7 @@ namespace YunFramework.Config
                 return;
             }
 
-            XmlReader xmlReader;  //读写器
+            XmlReader xmlReader;  //读取器
 
             //开始读取Xml
             try

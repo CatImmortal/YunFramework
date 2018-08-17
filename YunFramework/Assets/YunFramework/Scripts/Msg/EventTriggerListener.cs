@@ -42,6 +42,8 @@ namespace YunFramework.Msg
             {
                 _onPointerClick(eventData);
             }
+
+            
         }
 
         public override void OnPointerDown(PointerEventData eventData)

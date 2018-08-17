@@ -8,7 +8,7 @@ using YunFramework.Fsm;
 /// </summary>
 public class FrameworkEntry : IUpdater
 {
-    public GameObject GO { get; set; }
+    public GameObject GameObject { get; set; }
 
 
     public int Priority

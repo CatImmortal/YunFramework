@@ -6,7 +6,7 @@ using YunFramework.Load;
 
 public class UpdaterTestMain : IUpdater
 {
-    public GameObject GO { get; set; }
+    public GameObject GameObject { get; set; }
 
 
     public int Priority
@@ -18,8 +18,8 @@ public class UpdaterTestMain : IUpdater
     }
     public void OnInit()
     {
-        //请到FrameWorkEntry中解开测试代码的注释
-        GO = ResLoader.Instance.LoadGameObject("UpdaterCube");
+        //请到FrameworkEntry中解开测试代码的注释
+        GameObject = ResLoader.Instance.LoadGameObject("UpdaterCube");
         Debug.Log(666);
     }
 
@@ -40,7 +40,7 @@ public class UpdaterTestMain : IUpdater
         float h = Input.GetAxis("Horizontal");
         float v = Input.GetAxis("Vertical");
 
-        GO.transform.Translate(new Vector3(h, 0, v) * Time.deltaTime * 5);
+        GameObject.transform.Translate(new Vector3(h, 0, v) * deltaTime * 5);
     }
 
     public void OnDestroy()

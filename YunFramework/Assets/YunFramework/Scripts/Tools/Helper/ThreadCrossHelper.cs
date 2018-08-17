@@ -8,7 +8,7 @@ using UnityEngine.Events;
 /// </summary>
 public class ThreadCrossHelper :Singleton<ThreadCrossHelper> , IUpdater
 {
-    public GameObject GO { get; set; }
+    public GameObject GameObject { get; set; }
 
     private object _currentCallLocker = new object();
 
@@ -23,6 +23,11 @@ public class ThreadCrossHelper :Singleton<ThreadCrossHelper> , IUpdater
         {
             return 1024;
         }
+    }
+
+    private ThreadCrossHelper()
+    {
+
     }
 
     /// <summary>

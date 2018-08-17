@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class ActionNodeTestMain : IUpdater
 {
-    public GameObject GO { get; set; }
+    public GameObject GameObject { get; set; }
 
 
     public int Priority

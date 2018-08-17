@@ -10,7 +10,7 @@ public interface IUpdater{
     /// <summary>
     /// 游戏物体引用
     /// </summary>
-    GameObject GO { get; set; }
+    GameObject GameObject { get; set; }
 
     /// <summary>
     /// 优先级

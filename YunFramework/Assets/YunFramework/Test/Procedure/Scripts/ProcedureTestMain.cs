@@ -8,15 +8,15 @@ public class ProcedureTestMain : MonoBehaviour {
     {
         //添加入口流程
         ProcedureStart start = new ProcedureStart();
-        ProcedureCtrl.Instance.AddProcedure(start);
-        ProcedureCtrl.Instance.SetEntranceProcedure(start);
+        ProcedureCtrler.Instance.AddProcedure(start);
+        ProcedureCtrler.Instance.SetEntranceProcedure(start);
 
         //添加其他流程
-        ProcedureCtrl.Instance.AddProcedure(new ProcedurePlay());
-        ProcedureCtrl.Instance.AddProcedure(new ProcedureOver());
+        ProcedureCtrler.Instance.AddProcedure(new ProcedurePlay());
+        ProcedureCtrler.Instance.AddProcedure(new ProcedureOver());
 
         //创建流程状态机
-        ProcedureCtrl.Instance.CreateProceduresFsm();
+        ProcedureCtrler.Instance.CreateProceduresFsm();
 
 
 
