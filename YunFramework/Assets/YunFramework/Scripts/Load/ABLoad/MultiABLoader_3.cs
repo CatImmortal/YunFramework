@@ -99,7 +99,7 @@ namespace YunFramework.Load
             else
             {
                 //未加载过，创建对应的单包加载类对象
-                _curSingleAB = new SingleABLoader_2(abName, CompleteLoadAB);
+                _curSingleAB = new SingleABLoader_2(_curFirstDirName,abName, CompleteLoadAB);
                 _singleABDict.Add(abName, _curSingleAB);
                 yield return _curSingleAB.LoadAssetBundle();
             }
@@ -156,16 +156,16 @@ namespace YunFramework.Load
         /// <summary>
         /// 卸载指定资源
         /// </summary>
-        public void UnloadAsset(string abName,Object asset)
+        public bool UnloadAsset(string abName,Object asset)
         {
 
             if (!_singleABDict.ContainsKey(abName))
             {
                 Debug.LogError("要卸载资源的AB包没有加载过：" + abName);
-                return;
+                return false;
             }
 
-            _singleABDict[abName].UnloadAsset(asset);
+            return _singleABDict[abName].UnloadAsset(asset);
 
         }
 
@@ -201,7 +201,7 @@ namespace YunFramework.Load
         }
 
         /// <summary>
-        /// 释放所有资源
+        /// 释放所有资源及AB包内存镜像
         /// </summary>
         public void DisposeAllAsset()
         {

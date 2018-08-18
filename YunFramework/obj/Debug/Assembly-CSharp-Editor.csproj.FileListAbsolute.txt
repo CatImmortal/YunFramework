@@ -201,3 +201,4 @@ D:\GitHub\YunFramework\YunFramework\obj\Debug\Assembly-CSharp-Editor.csproj.Core
 D:\GitHub\YunFramework\YunFramework\obj\Debug\Assembly-CSharp-Editor.csproj.CopyComplete
 D:\GitHub\YunFramework\YunFramework\obj\Debug\Assembly-CSharp-Editor.dll
 D:\GitHub\YunFramework\YunFramework\obj\Debug\Assembly-CSharp-Editor.pdb
+D:\GitHub\YunFramework\YunFramework\Temp\bin\Debug\iBoxDB.NET2.dll

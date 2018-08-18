@@ -45,8 +45,7 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\Temp\bin\Debug\UnityEngine.dll</HintPath>
     </Reference>
-    <Reference Include="UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
+    <Reference Include="UnityEngine.CoreModule">
       <HintPath>..\Temp\bin\Debug\UnityEngine.CoreModule.dll</HintPath>
     </Reference>
   </ItemGroup>

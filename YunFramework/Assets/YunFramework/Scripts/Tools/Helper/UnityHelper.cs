@@ -1,8 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-namespace YunFramework.Tools
-{
+
     /// <summary>
     /// Unity辅助器
     /// </summary>
@@ -80,5 +79,5 @@ namespace YunFramework.Tools
             }
         }
     }
-}
+
 

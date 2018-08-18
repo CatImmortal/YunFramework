@@ -316,6 +316,8 @@
     <Compile Include="Assets\YunFramework\Scripts\Config\Json\KeyValuesInfo.cs" />
     <Compile Include="Assets\YunFramework\Scripts\Config\Json\KeyValuesNode.cs" />
     <Compile Include="Assets\YunFramework\Scripts\Config\Xml\XmlConfiger.cs" />
+    <Compile Include="Assets\YunFramework\Scripts\DataBase\BaseDBObject.cs" />
+    <Compile Include="Assets\YunFramework\Scripts\DataBase\IBoxDBCtrler.cs" />
     <Compile Include="Assets\YunFramework\Scripts\DataNode\DataNode.cs" />
     <Compile Include="Assets\YunFramework\Scripts\DataNode\DataNodeCtrler.cs" />
     <Compile Include="Assets\YunFramework\Scripts\Define\ConstsDefine.cs" />
@@ -345,6 +347,8 @@
     <Compile Include="Assets\YunFramework\Test\AB\Scripts\ABTestMain.cs" />
     <Compile Include="Assets\YunFramework\Test\ActionNode\Scripts\ActionNodeTestMain.cs" />
     <Compile Include="Assets\YunFramework\Test\Config\Scritps\ConfigTestMain.cs" />
+    <Compile Include="Assets\YunFramework\Test\IBoxDB\Scripts\IBoxDBTestMain.cs" />
+    <Compile Include="Assets\YunFramework\Test\IBoxDB\Scripts\TestDBObject.cs" />
     <Compile Include="Assets\YunFramework\Test\Msg\Scripts\MsgReceiveCube.cs" />
     <Compile Include="Assets\YunFramework\Test\Msg\Scripts\MsgTestMain.cs" />
     <Compile Include="Assets\YunFramework\Test\Procedure\Scripts\ProcedureOver.cs" />
@@ -556,6 +560,9 @@
     </Reference>
     <Reference Include="UnityEngine.SpatialTracking">
       <HintPath>C:/Program Files/Unity2018.1.0f2/Editor/Data/UnityExtensions/Unity/UnitySpatialTracking/RuntimeEditor/UnityEngine.SpatialTracking.dll</HintPath>
+    </Reference>
+    <Reference Include="iBoxDB.NET2">
+      <HintPath>D:/GitHub/YunFramework/YunFramework/Assets/ThirdParty/IBoxDB/iBoxDB.NET2.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.Analytics">
       <HintPath>C:/Users/Administrator/AppData/Local/Unity/cache/packages/packages.unity.com/com.unity.analytics@2.0.16/UnityEngine.Analytics.dll</HintPath>

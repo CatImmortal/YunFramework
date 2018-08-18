@@ -334,3 +334,4 @@ D:\GitHub\YunFramework\YunFramework\obj\Debug\Assembly-CSharp.csproj.CoreCompile
 D:\GitHub\YunFramework\YunFramework\obj\Debug\Assembly-CSharp.csproj.CopyComplete
 D:\GitHub\YunFramework\YunFramework\obj\Debug\Assembly-CSharp.dll
 D:\GitHub\YunFramework\YunFramework\obj\Debug\Assembly-CSharp.pdb
+D:\GitHub\YunFramework\YunFramework\Temp\bin\Debug\iBoxDB.NET2.dll

@@ -35,7 +35,7 @@ namespace YunFramework.Load
             //参数检查
             if (string.IsNullOrEmpty(firstDirName) || string.IsNullOrEmpty(abName))
             {
-                Debug.LogError("一级目录名或AB包名为空，下载AB指定包失败");
+                Debug.LogError("一级目录名或AB包名为空，加载AB包失败");
             }
 
             //等待清单文件加载完成
@@ -67,7 +67,7 @@ namespace YunFramework.Load
         /// </summary>
         public T LoadAsset<T>(string path, bool isCache = false) where T : Object
         {
-            //从路径里切割出一级目录，包路径和资源的名字
+            //从路径里切割出一级目录，包名和资源的名字
             string firstDirName = path.Split(',')[0];
             string abName = path.Split(',')[1];
             string assetName = path.Split(',')[2];
@@ -81,7 +81,6 @@ namespace YunFramework.Load
             }
             else
             {
-                UpdateDriver.Instance.StartCoroutine(LoadAssetBundle(firstDirName, abName, (_abName) => { })); 
                 Debug.LogError("要加载的资源：" + assetName + "不在指定包：" + abName);
                 return null;
             }
@@ -115,16 +114,16 @@ namespace YunFramework.Load
         /// <summary>
         /// 卸载指定资源
         /// </summary>
-        public void UnloadAsset(string firstDirName, string abName, Object asset)
+        public bool UnloadAsset(string firstDirName, string abName, Object asset)
         {
 
             if (!_allFirstDirDict.ContainsKey(firstDirName))
             {
                 Debug.LogError("要卸载资源的AB包的一级目录不存在字典中");
-                return;
+                return false;
             }
 
-            _allFirstDirDict[firstDirName].UnloadAsset(abName, asset);
+            return _allFirstDirDict[firstDirName].UnloadAsset(abName, asset);
         }
 
         /// <summary>

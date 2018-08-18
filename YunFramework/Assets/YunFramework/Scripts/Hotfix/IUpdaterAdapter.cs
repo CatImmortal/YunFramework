@@ -39,7 +39,10 @@ public class IUpdaterAdapter : CrossBindingAdaptor
     {
         ILTypeInstance _instance;
         ILRuntime.Runtime.Enviorment.AppDomain _appDomain;
-        private readonly object[] param = new object[1];
+
+        //方法参数缓存
+        private readonly object[] param0 = new object[0];
+        private readonly object[] param1 = new object[1];
 
         public ILTypeInstance ILInstance { get { return _instance; } }
 
@@ -80,7 +83,7 @@ public class IUpdaterAdapter : CrossBindingAdaptor
                     _getGameObject = _instance.Type.GetMethod("get_GameObject");
                 }
 
-                GameObject go = (GameObject)_appDomain.Invoke(_getGameObject, _instance, null);
+                GameObject go = (GameObject)_appDomain.Invoke(_getGameObject, _instance, param0);
                 return go;
             }
 
@@ -91,8 +94,8 @@ public class IUpdaterAdapter : CrossBindingAdaptor
                     _setGameObject = _instance.Type.GetMethod("set_GameObject", 1);
                 }
 
-                param[0] = value;
-                _appDomain.Invoke(_setGameObject, _instance, param);
+                param1[0] = value;
+                _appDomain.Invoke(_setGameObject, _instance, param1);
             }
         }
 
@@ -105,7 +108,7 @@ public class IUpdaterAdapter : CrossBindingAdaptor
                     _getPriority = _instance.Type.GetMethod("get_Priority");
                 }
 
-                int priority = (int)_appDomain.Invoke(_getPriority, _instance, null);
+                int priority = (int)_appDomain.Invoke(_getPriority, _instance, param0);
 
                 return priority;
             }
@@ -118,7 +121,7 @@ public class IUpdaterAdapter : CrossBindingAdaptor
                 _onInit = _instance.Type.GetMethod("OnInit");
             }
 
-            _appDomain.Invoke(_onInit, _instance, null);
+            _appDomain.Invoke(_onInit, _instance, param0);
         }
 
         public void OnUpdate(float deltaTime)
@@ -128,8 +131,8 @@ public class IUpdaterAdapter : CrossBindingAdaptor
                 _onUpdate = _instance.Type.GetMethod("OnUpdate", 1);
             }
 
-            param[0] = deltaTime;
-            _appDomain.Invoke(_onUpdate, _instance, param);
+            param1[0] = deltaTime;
+            _appDomain.Invoke(_onUpdate, _instance, param1);
         }
 
         public void OnLateUpdate(float deltaTime)
@@ -139,8 +142,8 @@ public class IUpdaterAdapter : CrossBindingAdaptor
                 _onLateUpdate = _instance.Type.GetMethod("OnLateUpdate", 1);
             }
 
-            param[0] = deltaTime;
-            _appDomain.Invoke(_onLateUpdate, _instance, param);
+            param1[0] = deltaTime;
+            _appDomain.Invoke(_onLateUpdate, _instance, param1);
         }
 
         public void OnFixedUpdate(float deltaTime)
@@ -150,8 +153,8 @@ public class IUpdaterAdapter : CrossBindingAdaptor
                 _onFixedUpdate = _instance.Type.GetMethod("OnFixedUpdate", 1);
             }
 
-            param[0] = deltaTime;
-            _appDomain.Invoke(_onFixedUpdate, _instance, param);
+            param1[0] = deltaTime;
+            _appDomain.Invoke(_onFixedUpdate, _instance, param1);
         }
 
         public void OnDestroy()
@@ -161,7 +164,7 @@ public class IUpdaterAdapter : CrossBindingAdaptor
                 _onDestory = _instance.Type.GetMethod("OnDestroy");
             }
 
-            _appDomain.Invoke(_onDestory, _instance, null);
+            _appDomain.Invoke(_onDestory, _instance, param0);
         }
 
     }

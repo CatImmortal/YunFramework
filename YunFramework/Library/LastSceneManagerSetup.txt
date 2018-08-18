@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/YunFramework/Test/ILRuntime/Scene/test.unity
+- path: Assets/YunFramework/Test/IBoxDB/Scene/test.unity
   isLoaded: 1
   isActive: 1

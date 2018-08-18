@@ -26,12 +26,11 @@ public class Hotfixer : Singleton<Hotfixer> {
     public void LoadHotfixDll()
     {
         _appDomain = new AppDomain();
-        _appDomain.RegisterCrossBindingAdaptor(new IUpdaterAdapter());
 
-        UpdateDriver.Instance.StartCoroutine(AssetBundleLoader_4.Instance.LoadAssetBundle("hotfix", "hotfix/dll.unity3d", LoadAllABComplete));
+        UpdateDriver.Instance.StartCoroutine(AssetBundleLoader_4.Instance.LoadAssetBundle("hotfix", "dll.unity3d", LoadAllComplete));
     }
 
-    private void LoadAllABComplete(string abName)
+    private void LoadAllComplete(string abName)
     {
         byte[] dll = AssetBundleLoader_4.Instance.LoadAsset<TextAsset>("hotfix," + abName + ",Hotfix.dll.bytes", false).bytes;
         byte[] pdb = AssetBundleLoader_4.Instance.LoadAsset<TextAsset>("hotfix," + abName + ",Hotfix.pdb.bytes", false).bytes;

@@ -21,6 +21,9 @@ public class FrameworkEntry : IUpdater
 
     public void OnInit()
     {
+        //加载热更新Dll
+        Hotfixer.Instance.LoadHotfixDll();
+
         //TODO:添加框架各模块的轮询器
         UpdateDriver.Instance.AddUpdater(FsmCtrler.Instance);
         UpdateDriver.Instance.AddUpdater(ThreadCrossHelper.Instance);

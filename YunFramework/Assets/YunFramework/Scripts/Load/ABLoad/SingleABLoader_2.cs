@@ -16,6 +16,11 @@ namespace YunFramework.Load
         private AssetLoader_1 assetLoader;
 
         /// <summary>
+        /// AB包所在一级目录名
+        /// </summary>
+        private string _firstDirName;
+
+        /// <summary>
         /// AB包名
         /// </summary>
         private string _abName;
@@ -30,11 +35,12 @@ namespace YunFramework.Load
         /// </summary>
         private UnityAction<string> _loadCompleteHandle;
 
-        public SingleABLoader_2(string abName, UnityAction<string> loadComplete)
+        public SingleABLoader_2(string firstDirName,string abName, UnityAction<string> loadComplete)
         {
             assetLoader = null;
+            _firstDirName = firstDirName;
             _abName = abName;
-            _abDownloadPath = RuntimeABPath.GetWWWPath() + "/" + abName;
+            _abDownloadPath = RuntimeABPath.GetWWWPath() + "/" + _firstDirName + "/" + abName;
             _loadCompleteHandle = loadComplete;
         }
 
@@ -92,15 +98,17 @@ namespace YunFramework.Load
         /// <summary>
         /// 卸载指定资源
         /// </summary>
-        public void UnloadAsset(Object asset)
+        public bool UnloadAsset(Object asset)
         {
             if (assetLoader != null)
             {
                 assetLoader.UnloadAsset(asset);
+                return true;
             }
             else
             {
-                Debug.LogError("资源释放失败，缺少AssetLoader对象的引用");
+                Debug.LogError("资源卸载失败，缺少AssetLoader对象的引用");
+                return false;
             }
         }
 

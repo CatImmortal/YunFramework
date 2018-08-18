@@ -1,6 +1,5 @@
 D:\GitHub\YunFramework\YunFramework\Hotfix\bin\Debug\Hotfix.dll
 D:\GitHub\YunFramework\YunFramework\Hotfix\bin\Debug\Hotfix.pdb
-D:\GitHub\YunFramework\YunFramework\Hotfix\bin\Debug\Assembly-CSharp.dll
 D:\GitHub\YunFramework\YunFramework\Hotfix\bin\Debug\UnityEngine.dll
 D:\GitHub\YunFramework\YunFramework\Hotfix\bin\Debug\UnityEngine.UI.dll
 D:\GitHub\YunFramework\YunFramework\Hotfix\bin\Debug\UnityEngine.UIModule.dll
@@ -50,7 +49,6 @@ D:\GitHub\YunFramework\YunFramework\Hotfix\obj\Debug\Hotfix.csproj.CoreCompileIn
 D:\GitHub\YunFramework\YunFramework\Hotfix\obj\Debug\Hotfix.csproj.CopyComplete
 D:\GitHub\YunFramework\YunFramework\Hotfix\obj\Debug\Hotfix.dll
 D:\GitHub\YunFramework\YunFramework\Hotfix\obj\Debug\Hotfix.pdb
-D:\GitHub\YunFramework\YunFramework\Hotfix\bin\Debug\UnityEngine.CoreModule.dll
 D:\GitHub\YunFramework\YunFramework\Hotfix\bin\Debug\UnityEngine.ParticleSystemModule.dll
 D:\GitHub\YunFramework\YunFramework\Hotfix\bin\Debug\UnityEngine.PhysicsModule.dll
 D:\GitHub\YunFramework\YunFramework\Hotfix\bin\Debug\UnityEngine.VehiclesModule.dll
