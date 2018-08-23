@@ -1,10 +1,5 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Events;
-using YunFramework.ActionNode;
-
-
 
 public static class GameObjectExtension
 {
@@ -34,7 +29,39 @@ public static class GameObjectExtension
 
     public static void DestroySelf(this GameObject self)
     {
-        UpdateDriver.Instance.Destroy(self);
+        FrameworkEntry.UpdateDriver.Destroy(self);
+    }
+
+    /// <summary>
+    /// 添加轮询器
+    /// </summary>
+    public static void AddUpdater<T>(this GameObject self) where T : class, IUpdater, new()
+    {
+        FrameworkEntry.UpdateDriver.AddUpdater<T>(self);
+    }
+
+    /// <summary>
+    /// 添加轮询器
+    /// </summary>
+    public static void AddUpdater(this GameObject self , IUpdater updater)
+    {
+        FrameworkEntry.UpdateDriver.AddUpdater(updater, self);
+    }
+
+    /// <summary>
+    /// 获取轮询器
+    /// </summary>
+    public static T GetUpdater<T>(this GameObject self) where T : class, IUpdater
+    {
+        return FrameworkEntry.UpdateDriver.GetUpdater<T>();
+    }
+
+    /// <summary>
+    /// 获取多个轮询器
+    /// </summary>
+    public static List<T> GetUpdaters<T>(this GameObject self) where T : class, IUpdater
+    {
+        return FrameworkEntry.UpdateDriver.GetUpdaters<T>();
     }
 
 

@@ -7,7 +7,7 @@ namespace YunFramework.Procedure
     /// <summary>
     /// 流程控制器
     /// </summary>
-    public class ProcedureCtrler : Singleton<ProcedureCtrler>
+    public class ProcedureCtrler
     {
         #region 字段与属性
 
@@ -77,7 +77,7 @@ namespace YunFramework.Procedure
         /// </summary>
         public void CreateProceduresFsm()
         {
-            _procedureFsm = FsmCtrler.Instance.CreateFsm(this,"", _procedures.ToArray());
+            _procedureFsm = FrameworkEntry.FsmCtrler.CreateFsm(this,"", _procedures.ToArray());
 
             if (_entranceProcedure == null)
             {

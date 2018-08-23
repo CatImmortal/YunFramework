@@ -6,7 +6,7 @@ namespace YunFramework.Load
     /// <summary>
     /// AB包清单文件加载器
     /// </summary>
-    public class ABManifestLoader : Singleton<ABManifestLoader>, System.IDisposable
+    public class ABManifestLoader : System.IDisposable
     {
 
         /// <summary>

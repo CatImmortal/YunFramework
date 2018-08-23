@@ -9,7 +9,7 @@ namespace YunFramework.DataBase
     /// <summary>
     /// IBox数据库控制器
     /// </summary>
-    public class IBoxDBCtrler : Singleton<IBoxDBCtrler>
+    public class IBoxDBCtrler
     {
         /// <summary>
         /// 数据库对象

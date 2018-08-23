@@ -82,7 +82,7 @@ namespace YunFramework.Load
             ABRelation tempRelation = _abRelationDict[abName];
 
             //得到指定AB包的所有依赖关系（查询清单文件）
-            string[] dependenceArray = ABManifestLoader.Instance.RetrivalDependece(abName);
+            string[] dependenceArray = FrameworkEntry.ABManifestLoader.RetrivalDependece(abName);
             foreach (string itemDependence in dependenceArray)
             {
                 //添加依赖项

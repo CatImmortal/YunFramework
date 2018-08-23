@@ -8,7 +8,8 @@ using YunFramework.Load;
 /// <summary>
 /// 热更新器
 /// </summary>
-public class Hotfixer : Singleton<Hotfixer> {
+public class Hotfixer
+{
 
     private Hotfixer()
     {
@@ -27,13 +28,13 @@ public class Hotfixer : Singleton<Hotfixer> {
     {
         _appDomain = new AppDomain();
 
-        UpdateDriver.Instance.StartCoroutine(AssetBundleLoader_4.Instance.LoadAssetBundle("hotfix", "dll.unity3d", LoadAllComplete));
+        FrameworkEntry.UpdateDriver.StartCoroutine(FrameworkEntry.AssetBundleLoader.LoadAssetBundle("hotfix", "dll.unity3d", LoadAllComplete));
     }
 
     private void LoadAllComplete(string abName)
     {
-        byte[] dll = AssetBundleLoader_4.Instance.LoadAsset<TextAsset>("hotfix," + abName + ",Hotfix.dll.bytes", false).bytes;
-        byte[] pdb = AssetBundleLoader_4.Instance.LoadAsset<TextAsset>("hotfix," + abName + ",Hotfix.pdb.bytes", false).bytes;
+        byte[] dll = FrameworkEntry.AssetBundleLoader.LoadAsset<TextAsset>("hotfix," + abName + ",Hotfix.dll.bytes", false).bytes;
+        byte[] pdb = FrameworkEntry.AssetBundleLoader.LoadAsset<TextAsset>("hotfix," + abName + ",Hotfix.pdb.bytes", false).bytes;
 
         using (MemoryStream fs = new MemoryStream(dll))
         {

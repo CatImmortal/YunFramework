@@ -6,7 +6,7 @@ namespace YunFramework.Fsm
     /// <summary>
     /// 状态机控制器
     /// </summary>
-    public class FsmCtrler : Singleton<FsmCtrler>,IUpdater
+    public class FsmCtrler : IUpdater
     {
         /// <summary>
         /// 所有状态机的字典

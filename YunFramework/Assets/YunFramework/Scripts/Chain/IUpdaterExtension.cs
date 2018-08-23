@@ -15,7 +15,7 @@ public static class IUpdaterExtension
     /// </summary>
     public static T ExecuteNode<T>(this T self, ActionNodeBase node) where T : IUpdater
     {
-        UpdateDriver.Instance.StartCoroutine(node.Execute());
+        FrameworkEntry.UpdateDriver.StartCoroutine(node.Execute());
         return self;
     }
 
@@ -41,6 +41,38 @@ public static class IUpdaterExtension
     public static NodeChainBase Repeat<T>(this T self, int count = -1) where T : IUpdater
     {
         return new RepeatNodeChain(count) { Executer = self };
+    }
+
+    /// <summary>
+    /// 添加轮询器
+    /// </summary>
+    public static void AddUpdater<T>(this IUpdater self) where T : class, IUpdater, new()
+    {
+        FrameworkEntry.UpdateDriver.AddUpdater<T>(self.GameObject);
+    }
+
+    /// <summary>
+    /// 添加轮询器
+    /// </summary>
+    public static void AddUpdater(this IUpdater self , IUpdater updater)
+    {
+        FrameworkEntry.UpdateDriver.AddUpdater(updater, self.GameObject);
+    }
+
+    /// <summary>
+    /// 获取轮询器
+    /// </summary>
+    public static T GetUpdater<T>(this IUpdater self) where T : class, IUpdater
+    {
+        return FrameworkEntry.UpdateDriver.GetUpdater<T>(self.GameObject);
+    }
+
+    /// <summary>
+    /// 获取多个轮询器
+    /// </summary>
+    public static List<T> GetUpdaters<T>(this IUpdater self) where T : class, IUpdater
+    {
+        return FrameworkEntry.UpdateDriver.GetUpdaters<T>(self.GameObject);
     }
 }
 

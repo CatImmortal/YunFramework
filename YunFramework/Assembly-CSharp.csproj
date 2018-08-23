@@ -302,12 +302,12 @@
     <Compile Include="Assets\YunFramework\Scripts\ActionNode\Node\SequenceNode.cs" />
     <Compile Include="Assets\YunFramework\Scripts\ActionNode\Node\SpawnNode.cs" />
     <Compile Include="Assets\YunFramework\Scripts\ActionNode\Node\UntilNode.cs" />
-    <Compile Include="Assets\YunFramework\Scripts\Base\Script\FrameworkEntry.cs" />
-    <Compile Include="Assets\YunFramework\Scripts\Base\Script\IUpdater.cs" />
-    <Compile Include="Assets\YunFramework\Scripts\Base\Script\UpdateDriver.cs" />
+    <Compile Include="Assets\YunFramework\Scripts\Base\FrameworkEntry.cs" />
+    <Compile Include="Assets\YunFramework\Scripts\Base\IUpdater.cs" />
     <Compile Include="Assets\YunFramework\Scripts\Base\Singleton\ScriptSingleton.cs" />
     <Compile Include="Assets\YunFramework\Scripts\Base\Singleton\Singleton.cs" />
     <Compile Include="Assets\YunFramework\Scripts\Base\Singleton\SingletonComponent.cs" />
+    <Compile Include="Assets\YunFramework\Scripts\Base\UpdateDriver.cs" />
     <Compile Include="Assets\YunFramework\Scripts\Chain\GameObjectExtension.cs" />
     <Compile Include="Assets\YunFramework\Scripts\Chain\IUpdaterExtension.cs" />
     <Compile Include="Assets\YunFramework\Scripts\Chain\TransformExtension.cs" />

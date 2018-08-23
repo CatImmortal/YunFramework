@@ -24,7 +24,7 @@ namespace Hotfix
 
             //ILR测试
             //ILRTestMain ilrTestMain = new ILRTestMain();
-            //UpdateDriver.Instance.AddUpdater(ilrTestMain, ResLoader.Instance.LoadGameObject("ILRCube"));
+            //FrameworkEntry.UpdateDriver.AddUpdater(ilrTestMain, FrameworkEntry.ResLoader.LoadGameObject("ILRCube"));
         }
 
     }

@@ -8,7 +8,7 @@ namespace YunFramework.DataNode
     /// <summary>
     /// 数据结点控制器
     /// </summary>
-    public class DataNodeCtrler : Singleton<DataNodeCtrler>
+    public class DataNodeCtrler
     {
         private static readonly string[] s_emptyStringArray = new string[] { };
 

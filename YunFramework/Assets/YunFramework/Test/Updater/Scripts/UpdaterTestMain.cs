@@ -19,8 +19,6 @@ public class UpdaterTestMain : IUpdater
     public void OnInit()
     {
         //请到FrameworkEntry中解开测试代码的注释
-        GameObject = ResLoader.Instance.LoadGameObject("UpdaterCube");
-        Debug.Log(666);
     }
 
     public void OnFixedUpdate(float deltaTime)

@@ -7,7 +7,7 @@ namespace YunFramework.Load
     /// <summary>
     /// AB包总加载器(根目录)
     /// </summary>
-    public class AssetBundleLoader_4 :Singleton<AssetBundleLoader_4>, ILoader
+    public class AssetBundleLoader_4 : ILoader
     {
         /// <summary>
         /// 所有一级目录的字典
@@ -22,7 +22,7 @@ namespace YunFramework.Load
         private AssetBundleLoader_4()
         {
             //加载清单文件
-            UpdateDriver.Instance.StartCoroutine(ABManifestLoader.Instance.LoadManifetFile());
+            FrameworkEntry.UpdateDriver.StartCoroutine(FrameworkEntry.ABManifestLoader.LoadManifetFile());
         }
 
 
@@ -39,7 +39,7 @@ namespace YunFramework.Load
             }
 
             //等待清单文件加载完成
-            while (!ABManifestLoader.Instance.IsLoadFinish)
+            while (!FrameworkEntry.ABManifestLoader.IsLoadFinish)
             {
                 yield return null;
             }

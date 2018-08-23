@@ -6,7 +6,7 @@ namespace YunFramework.Load
     /// <summary>
     /// Resources目录下的资源加载器
     /// </summary>
-    public class ResLoader : Singleton<ResLoader>,ILoader
+    public class ResLoader : ILoader
     {
         /// <summary>
         /// 缓存资源的哈希表

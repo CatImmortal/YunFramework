@@ -6,9 +6,9 @@ public class IBoxDBTestMain : MonoBehaviour {
 
 	void Start () {
 
-        IBoxDBCtrler.Instance.CreateDataTable<BaseDBObject>("Key");
-        IBoxDBCtrler.Instance.CreateDataTable<TestDBObject>("ID");
-        IBoxDBCtrler.Instance.Start();
+        FrameworkEntry.IBoxDBCtrler.CreateDataTable<BaseDBObject>("Key");
+        FrameworkEntry.IBoxDBCtrler.CreateDataTable<TestDBObject>("ID");
+        FrameworkEntry.IBoxDBCtrler.Start();
 
         //------------------------------------------------------------------
 
@@ -21,9 +21,9 @@ public class IBoxDBTestMain : MonoBehaviour {
         obj1["age"] = 18;
         obj1["sex"] = "男";
 
-        IBoxDBCtrler.Instance.SaveData(obj1, obj1.Key);
+        FrameworkEntry.IBoxDBCtrler.SaveData(obj1, obj1.Key);
 
-        BaseDBObject tempObj = IBoxDBCtrler.Instance.GetData<BaseDBObject>("obj1");
+        BaseDBObject tempObj = FrameworkEntry.IBoxDBCtrler.GetData<BaseDBObject>("obj1");
         Debug.Log(string.Format("Key-{0} name-{1} age-{2} sex-{3}", tempObj.Key, tempObj["name"], tempObj["age"], tempObj["sex"]));
 
 
@@ -37,9 +37,9 @@ public class IBoxDBTestMain : MonoBehaviour {
             flo = 2.14159f
         };
 
-        IBoxDBCtrler.Instance.SaveData(test, test.ID);
+        FrameworkEntry.IBoxDBCtrler.SaveData(test, test.ID);
 
-        TestDBObject tempTest = IBoxDBCtrler.Instance.GetData<TestDBObject>(0);
+        TestDBObject tempTest = FrameworkEntry.IBoxDBCtrler.GetData<TestDBObject>(0);
         Debug.Log(string.Format("ID-{0} num-{1} str-{2} flo-{3}", tempTest.ID, tempTest.num, tempTest.str, tempTest.flo));
 
         //------------------------------------------------------------------
@@ -82,9 +82,9 @@ public class IBoxDBTestMain : MonoBehaviour {
         map.Add(test3, test3.ID);
         map.Add(test4, test4.ID);
 
-        IBoxDBCtrler.Instance.SaveDatas(map);
+        FrameworkEntry.IBoxDBCtrler.SaveDatas(map);
 
-        List<TestDBObject> datas = IBoxDBCtrler.Instance.GetDatas<TestDBObject>("num", 666);
+        List<TestDBObject> datas = FrameworkEntry.IBoxDBCtrler.GetDatas<TestDBObject>("num", 666);
 
         foreach (TestDBObject data in datas)
         {

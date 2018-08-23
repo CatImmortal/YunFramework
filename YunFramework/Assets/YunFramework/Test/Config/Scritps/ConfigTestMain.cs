@@ -7,14 +7,14 @@ public class ConfigTestMain : MonoBehaviour {
 
     void Start()
     {
-        JsonConfiger jsonConfiger = new JsonConfiger("JsonConfigTest",ResLoader.Instance);
+        JsonConfiger jsonConfiger = new JsonConfiger("JsonConfigTest",FrameworkEntry.ResLoader);
         foreach (KeyValuePair<string,string> kv in jsonConfiger.ConfigDict)
         {
             Debug.Log(kv.Key + "-" + kv.Value);
         }
 
         
-        XmlConfiger xmlConfiger = new XmlConfiger("XmlConfigTest", "XmlConfigInfo", ResLoader.Instance);
+        XmlConfiger xmlConfiger = new XmlConfiger("XmlConfigTest", "XmlConfigInfo", FrameworkEntry.ResLoader);
         foreach (KeyValuePair<string, string> kv in xmlConfiger.ConfigDict)
         {
             Debug.Log(kv.Key + "-" + kv.Value);

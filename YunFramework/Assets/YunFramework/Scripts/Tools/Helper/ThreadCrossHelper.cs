@@ -6,7 +6,7 @@ using UnityEngine.Events;
 /// <summary>
 /// 线程交叉访问辅助器
 /// </summary>
-public class ThreadCrossHelper :Singleton<ThreadCrossHelper> , IUpdater
+public class ThreadCrossHelper : IUpdater
 {
     public GameObject GameObject { get; set; }
 
