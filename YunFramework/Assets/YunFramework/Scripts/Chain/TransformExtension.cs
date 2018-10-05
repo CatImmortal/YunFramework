@@ -4,7 +4,7 @@ using UnityEngine;
 
 
 /// <summary>
-/// 对Transform的链式编程扩展
+/// 对Transform的扩展
 /// </summary>
 public static class TransformExtension
 {
@@ -53,6 +53,33 @@ public static class TransformExtension
         return self;
     }
 
+    public static Transform SetLocalPositionX(this Transform self, float x)
+    {
+        Vector3 temp = self.position;
+        temp.x = x;
+        self.localPosition = temp;
+
+        return self;
+    }
+
+    public static Transform SetLocalPositionY(this Transform self, float y)
+    {
+        Vector3 temp = self.position;
+        temp.y = y;
+        self.localPosition = temp;
+
+        return self;
+    }
+
+    public static Transform SetLocalPositionZ(this Transform self, float z)
+    {
+        Vector3 temp = self.position;
+        temp.z = z;
+        self.localPosition = temp;
+
+        return self;
+    }
+
     public static Transform SetEulerAngles(this Transform self, Vector3 eulerAngles)
     {
         self.eulerAngles = eulerAngles;
@@ -89,6 +116,134 @@ public static class TransformExtension
         return self;
     }
 
+    /// <summary>
+    /// 平滑旋转
+    /// </summary>
+    public static IEnumerator SmoothRotate(this Transform self, Vector3 eulerAngles, float duration, Space relativeTo = Space.World)
+    {
+        Quaternion targetQuaternion = Quaternion.Euler(eulerAngles);
+        Quaternion originalQuaternion;
+
+        if (relativeTo == Space.World)
+        {
+            originalQuaternion = self.rotation; 
+        }
+        else
+        {
+            originalQuaternion = self.localRotation;
+        }
+
+        //开始平滑旋转
+        float timer = 0;
+        while (timer < duration)
+        {
+            timer += Time.deltaTime;
+
+            if (relativeTo == Space.World)
+            {
+                self.rotation = Quaternion.Slerp(originalQuaternion, targetQuaternion, timer / duration);
+            }
+            else
+            {
+                self.localRotation = Quaternion.Slerp(originalQuaternion, targetQuaternion, timer / duration);
+            }
+            
+            yield return null;
+        }
+
+        if (relativeTo == Space.World)
+        {
+            self.rotation = targetQuaternion;
+        }
+        else
+        {
+            self.localRotation = targetQuaternion;
+        }
+        
+    }
+
+    /// <summary>
+    /// 平滑朝向目标点
+    /// </summary>
+    public static IEnumerator SmoothLookAt(this Transform self, Vector3 target, float duration, bool isIgnoreY = false)
+    {
+        //使目标点Y轴与自身处于同一平面（即不会抬头或低头朝向目标）
+        if (isIgnoreY)
+        {
+            target = new Vector3(target.x, self.position.y, target.z);
+        }
+
+        Quaternion targetQuaternion = Quaternion.LookRotation(target - self.position);
+        Quaternion originalQuaternion = self.rotation;
+
+        float timer = 0f;
+
+        while (timer < duration)
+        {
+            timer += Time.deltaTime;
+
+            self.rotation = Quaternion.Slerp(originalQuaternion, targetQuaternion, timer / duration);
+
+            yield return null;
+        }
+
+        self.rotation = targetQuaternion;
+    }
+
+    /// <summary>
+    /// 平滑朝向目标点（2D用）
+    /// </summary>
+    public static IEnumerator SmoothLookAt2D(this Transform self, Vector2 target, float duration)
+    {
+        Vector2 pos2D = new Vector2(self.position.x, self.position.y);
+        //计算夹角
+        float angle = Vector2.Angle(self.right, target - pos2D);
+
+        //计算朝向偏移
+        float towardOffset = 1f;
+        if (Vector2.Dot(self.up, target - pos2D) < 0)
+        {
+            towardOffset = -1f;
+        }
+
+
+        Quaternion targetQuaternion = Quaternion.Euler(new Vector3(0, 0, self.eulerAngles.z + angle * towardOffset));
+        Quaternion originalQuaternion = self.rotation;
+
+        float timer = 0f;
+        while (timer < duration)
+        {
+            timer += Time.deltaTime;
+
+            self.rotation = Quaternion.Slerp(originalQuaternion, targetQuaternion, timer / duration);
+
+            yield return null;
+        }
+
+        self.rotation = targetQuaternion;
+    }
+
+    /// <summary>
+    /// 平滑移至目标点
+    /// </summary>
+    public static IEnumerator SmoothMoveTo(this Transform self, Vector3 target, float duration)
+    {
+       
+        Vector3 dir = (target - self.position).normalized;
+        float totalDistance = Vector3.Distance(self.position, target);
+        float speed = totalDistance / duration;
+
+        float timer = 0;
+        while (timer < duration)
+        {
+            timer += Time.deltaTime;
+
+            self.Translate(dir * speed * Time.deltaTime,Space.World);
+
+            yield return null;
+        }
+
+    }
 }
 
 

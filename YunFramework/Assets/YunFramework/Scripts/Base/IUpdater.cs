@@ -38,7 +38,7 @@ public interface IUpdater{
     void OnFixedUpdate(float deltaTime);
 
     /// <summary>
-    /// 销毁
+    /// 销毁时
     /// </summary>
     void OnDestroy();
 

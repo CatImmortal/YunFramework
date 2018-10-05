@@ -59,6 +59,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\NewBehaviourScript.cs" />
     <Compile Include="Assets\ThirdParty\ILRuntime\Generated\CLRBindings.cs" />
     <Compile Include="Assets\ThirdParty\ILRuntime\Generated\UnityEngine_Debug_Binding.cs" />
     <Compile Include="Assets\ThirdParty\ILRuntime\Generated\UnityEngine_GameObject_Binding.cs" />
@@ -310,6 +311,8 @@
     <Compile Include="Assets\YunFramework\Scripts\Base\UpdateDriver.cs" />
     <Compile Include="Assets\YunFramework\Scripts\Chain\GameObjectExtension.cs" />
     <Compile Include="Assets\YunFramework\Scripts\Chain\IUpdaterExtension.cs" />
+    <Compile Include="Assets\YunFramework\Scripts\Chain\Rigidbody2DExtension.cs" />
+    <Compile Include="Assets\YunFramework\Scripts\Chain\RigidbodyExtension.cs" />
     <Compile Include="Assets\YunFramework\Scripts\Chain\TransformExtension.cs" />
     <Compile Include="Assets\YunFramework\Scripts\Config\IConfiger.cs" />
     <Compile Include="Assets\YunFramework\Scripts\Config\Json\JsonConfiger.cs" />

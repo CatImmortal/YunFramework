@@ -4,6 +4,8 @@ using UnityEngine;
 using System;
 using System.Text;
 using System.Collections.Generic;
+using YunFramework.Hotfix;
+
 [System.Reflection.Obfuscation(Exclude = true)]
 public class ILRuntimeCLRBinding
 {
@@ -43,16 +45,10 @@ public class ILRuntimeCLRBinding
             domain.LoadAssembly(fs);
         }
         //Crossbind Adapter is needed to generate the correct binding code
-        InitILRuntime(domain);
+        Hotfixer.InitILRuntime(domain);
         ILRuntime.Runtime.CLRBinding.BindingCodeGenerator.GenerateBindingCode(domain, "Assets/ThirdParty/ILRuntime/Generated");
         AssetDatabase.Refresh();
     }
 
-    static void InitILRuntime(ILRuntime.Runtime.Enviorment.AppDomain domain)
-    {
-        //这里需要注册所有热更DLL中用到的跨域继承Adapter，否则无法正确抓取引用
-        domain.RegisterCrossBindingAdaptor(new IUpdaterAdapter());
-        AssetDatabase.Refresh();
-    }
 }
 #endif

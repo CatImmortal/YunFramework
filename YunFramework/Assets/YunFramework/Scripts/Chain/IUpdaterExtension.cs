@@ -6,7 +6,7 @@ using YunFramework.ActionNode;
 
 
 /// <summary>
-/// 对IUpdater的链式编程扩展
+/// 对IUpdater的扩展
 /// </summary>
 public static class IUpdaterExtension
 {

@@ -1,6 +1,9 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// 对GameObject的扩展
+/// </summary>
 public static class GameObjectExtension
 {
     public static GameObject Show(this GameObject self)

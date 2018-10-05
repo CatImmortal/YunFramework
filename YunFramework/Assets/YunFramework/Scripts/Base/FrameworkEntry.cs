@@ -4,6 +4,7 @@ using UnityEngine;
 using YunFramework.DataBase;
 using YunFramework.DataNode;
 using YunFramework.Fsm;
+using YunFramework.Hotfix;
 using YunFramework.Load;
 using YunFramework.Procedure;
 
@@ -76,10 +77,10 @@ public static class FrameworkEntry
     /// 框架初始化
     /// </summary>
     public static void FrameworkInit(UpdateDriver updateDriver)
-    {
-        //构造框架各模块的实例
+    { 
         UpdateDriver = updateDriver;
 
+        //构造框架各模块的实例
         ABManifestLoader = CreateInstance<ABManifestLoader>();
         AssetBundleLoader = CreateInstance<AssetBundleLoader_4>();
         ResLoader = CreateInstance<ResLoader>();

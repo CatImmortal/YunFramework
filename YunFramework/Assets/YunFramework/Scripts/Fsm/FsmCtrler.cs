@@ -11,8 +11,8 @@ namespace YunFramework.Fsm
         /// <summary>
         /// 所有状态机的字典
         /// </summary>
-        private Dictionary<string, IFsm> _fsms;
-        private List<IFsm> _tempFsms;
+        private Dictionary<string, IFsm> _fsms = new Dictionary<string, IFsm>();
+        private List<IFsm> _tempFsms = new List<IFsm>();
 
         public GameObject GameObject { get; set; }
 
@@ -27,8 +27,8 @@ namespace YunFramework.Fsm
 
         private FsmCtrler()
         {
-            _fsms = new Dictionary<string, IFsm>();
-            _tempFsms = new List<IFsm>();
+
+
         }
 
         #region 生命周期

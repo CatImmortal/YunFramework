@@ -66,13 +66,13 @@ public class UnityHelper
 
         if (searchTrans != null)
         {
-            //若有相同脚组件则销毁
-            T[] componentScriptsArray = searchTrans.GetComponents<T>();
-            for (int i = 0; i < componentScriptsArray.Length; i++)
+            //若有相同组件则销毁
+            T[] componentsArray = searchTrans.GetComponents<T>();
+            for (int i = 0; i < componentsArray.Length; i++)
             {
-                if (componentScriptsArray[i] != null)
+                if (componentsArray[i] != null)
                 {
-                    Object.DestroyImmediate(componentScriptsArray[i]);
+                    Object.DestroyImmediate(componentsArray[i]);
                 }
             }
 
